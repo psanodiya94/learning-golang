@@ -1,0 +1,78 @@
+// Go (Golang) Key Language Features:
+// 1. Compilation and Execution
+package main // Every Go program starts with package declaration
+
+// 2. Import Statements
+import (
+    "fmt"     // Standard formatting package
+    "strings" // String manipulation package
+)
+
+// 3. Main Function - Entry point
+func main() {
+    // Basic variable declaration
+    var name string = "Go"
+    age := 2009 // Type inference
+
+    // Control structures
+    if age > 2000 {
+        fmt.Println("Modern language")
+    }
+
+    // Arrays
+    var numbers [5]int
+    
+    // Slices (dynamic arrays)
+    slice := []int{1, 2, 3}
+    
+    // Maps
+    capitals := map[string]string{
+        "USA": "Washington DC",
+        "UK":  "London",
+    }
+
+    // Structs
+    type Person struct {
+        Name string
+        Age  int
+    }
+
+    // Goroutine example (concurrent execution)
+    go func() {
+        fmt.Println("Running concurrently")
+    }()
+
+    // Channel for communication between goroutines
+    ch := make(chan string)
+
+    // Error handling
+    _, err := someFunction()
+    if err != nil {
+        // Handle error
+    }
+
+    // Defer statement (executed after surrounding function returns)
+    defer fmt.Println("Cleanup")
+
+    // Interface definition
+    type Writer interface {
+        Write([]byte) (int, error)
+    }
+}
+
+// Function with multiple return values
+func someFunction() (int, error) {
+    return 0, nil
+}
+
+// Method definition
+type MyType struct{}
+func (m MyType) Method() {
+    // Method implementation
+}
+
+// Interface implementation
+type MyImplementation struct{}
+func (m MyImplementation) Write(p []byte) (int, error) {
+    return len(p), nil
+}
